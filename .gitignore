@@ -1,6 +1,5 @@
 /_logs_/*
 /.idea/*
-/_pycache_/*
 *.pyc
 
 
