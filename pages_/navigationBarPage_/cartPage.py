@@ -1,6 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from pages_.basePage import BasePage
+from common_.utilities_.customLogger import logger
 
 
 class CartPage(BasePage):
@@ -26,9 +27,9 @@ class CartPage(BasePage):
     def validate_empty_or_not_cart_page(self):
         cartCountElement = self._find_element(self.__cartCountLocator)
         if int(self._get_text(cartCountElement)) == 0:
-            print("The Cart Is Empty")
+            logger("INFO", "The Cart Is Empty")
         if int(self._get_text(cartCountElement)) != 0:
-            print("The Cart Is not Empty")
+            logger("INFO", "The Cart Is not Empty")
 
     def get_cart_count_element(self):
         cartCountElement = self._find_element(self.__cartCountLocator)
@@ -38,4 +39,6 @@ class CartPage(BasePage):
         cartCountElement = self._find_element(self.__cartCountLocator)
         while int(self._get_text(cartCountElement)) != 0:
             firstProductDeleteButtonElement = self._find_element(self.__firstProductDeleteButtonLocator)
+            self._click_to_element(firstProductDeleteButtonElement)
+
             self._click_to_element(firstProductDeleteButtonElement)
