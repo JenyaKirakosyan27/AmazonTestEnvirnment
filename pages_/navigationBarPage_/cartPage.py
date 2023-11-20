@@ -26,9 +26,9 @@ class CartPage(BasePage):
     def validate_empty_or_not_cart_page(self):
         cartCountElement = self._find_element(self.__cartCountLocator)
         if int(self._get_text(cartCountElement)) == 0:
-            print("Warning! The Cart Is Empty")
+            print("The Cart Is Empty")
         if int(self._get_text(cartCountElement)) != 0:
-            print("Warning! The Cart Is Empty")
+            print("The Cart Is not Empty")
 
     def get_cart_count_element(self):
         cartCountElement = self._find_element(self.__cartCountLocator)
